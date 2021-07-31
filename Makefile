@@ -4,9 +4,10 @@ NAME = checker
 
 SRCS_PATH = push_swap_checker
 
-FLAGS = -Werror -Wextra -Wall
+CC_FLAGS = -Werror -Wextra -Wall
 
-SRC = main.c init_stack.c ft_tabfree.c check_arg.c
+SRC = main.c init_stack.c ft_stack_free.c check_arg.c \
+		get_instruction_and_sort.c check_is_sorted.c
 
 SRC_PATH = $(addprefix $(SRCS_PATH)/,$(SRC))
 
@@ -39,8 +40,9 @@ all:	libft_compile
 		@mv $(OBJ) $(OBJ_DIR)
 		@$(CC) $(CC_FLAGS) $(OBJS) -L ./libft -lft -o $(NAME)
 		@printf "${BLUE}Checker${NC}:      ${DARK_YELLOW}Compilation is done    ${YELLOW}%-15.15s${NC}\n"
+
 libft_compile:
-	@make -C ./libft all
+		@make -C ./libft all
 
 clean : libft_clean
 		@rm -fr $(OBJS) $(OBJ_DIR)
