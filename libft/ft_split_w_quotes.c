@@ -15,7 +15,7 @@
 static int	quote_condition(t_quo q, char *s, int i)
 {
 	return (!(q.have_quote) || (is_unescapted_c(&q, s, i, SINGLE)
-				|| is_unescapted_c(&q, s, i, DOUBLE)));
+			|| is_unescapted_c(&q, s, i, DOUBLE)));
 }
 
 static int	get_nb_words(char *str, char c)
@@ -32,8 +32,8 @@ static int	get_nb_words(char *str, char c)
 		manage_struct_quotes(&quo, str, i);
 		if ((!i && (str[i] != c))
 			|| (i > 0 && is_unescapted_c(&quo, str, i - 1, c)
-					&& !is_unescapted_c(&quo, str, i, c)
-					&& quote_condition(quo, str, i)))
+				&& !is_unescapted_c(&quo, str, i, c)
+				&& quote_condition(quo, str, i)))
 			nb_words++;
 		i++;
 	}
@@ -56,7 +56,7 @@ static int	get_word_len(char *str, int i, char sep)
 	return (lens);
 }
 
-char		**split_into_tab(char **arr, char *str, char sep)
+char	**split_into_tab(char **arr, char *str, char sep)
 {
 	int			i;
 	int			j;
@@ -83,7 +83,7 @@ char		**split_into_tab(char **arr, char *str, char sep)
 	return (arr);
 }
 
-char		**ft_split_w_quotes(char const *s, char c)
+char	**ft_split_w_quotes(char const *s, char c)
 {
 	char		*str;
 	int			words_nb;

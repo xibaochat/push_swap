@@ -20,7 +20,8 @@ int	get_nb_words_in_arr(char *str, char c)
 	i = 0;
 	nb_words = 0;
 	while (str[i])
-	{		if ((!i && (str[i] != c))
+	{
+		if ((!i && (str[i] != c))
 			|| (i > 0 && (str[i - 1] == c) && (str[i] != c)))
 			nb_words++;
 		i++;

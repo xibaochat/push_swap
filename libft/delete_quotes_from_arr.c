@@ -53,7 +53,7 @@ static int	cmd_is_echo_and_q(char **arr)
 	return (0);
 }
 
-void		change_q_by_space(char **arr)
+void	change_q_by_space(char **arr)
 {
 	int		i;
 	char	*tmp;
@@ -73,7 +73,7 @@ void		change_q_by_space(char **arr)
 	}
 }
 
-void		delete_quotes_from_arr(char **arr, int has_sub)
+void	delete_quotes_from_arr(char **arr, int has_sub)
 {
 	int	i;
 
@@ -86,7 +86,7 @@ void		delete_quotes_from_arr(char **arr, int has_sub)
 			return ;
 		else if (ft_tablen(arr) == 2
 			&& (str_is_all_quote(arr[1], DOUBLE)
-					|| str_is_all_quote(arr[1], SINGLE)))
+				|| str_is_all_quote(arr[1], SINGLE)))
 		{
 			cmd_is_cd_and_q(arr);
 			return ;

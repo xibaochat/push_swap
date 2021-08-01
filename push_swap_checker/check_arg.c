@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
+/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 bool	isNumber(t_stack *ptr)
@@ -25,7 +37,7 @@ bool	isNumber(t_stack *ptr)
 bool	has_extrem_nb(t_stack *ptr)
 {
 	int			i;
-	long long 	nb;
+	long long	nb;
 
 	i = 0;
 	while (i < ptr->lens)
@@ -58,7 +70,7 @@ bool	has_duplicates_arg(t_stack *ptr)
 	return (false);
 }
 
-int		has_invalid_instruction(char *line)
+int	has_invalid_instruction(char *line)
 {
 	if (ft_strcmp(line, "sa") && ft_strcmp(line, "sb")
 		&& ft_strcmp(line, "ss") && ft_strcmp(line, "pa")

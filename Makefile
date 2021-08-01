@@ -7,7 +7,8 @@ SRCS_PATH = push_swap_checker
 CC_FLAGS = -Werror -Wextra -Wall
 
 SRC = main.c init_stack.c ft_stack_free.c check_arg.c \
-		get_instruction_and_sort.c check_is_sorted.c
+		get_instruction_and_sort.c check_is_sorted.c \
+		do_instruction.c do_instruction2.c
 
 SRC_PATH = $(addprefix $(SRCS_PATH)/,$(SRC))
 
@@ -47,12 +48,12 @@ libft_compile:
 clean : libft_clean
 		@rm -fr $(OBJS) $(OBJ_DIR)
 		@printf "${BLUE}PROJECT${NC}:      ${GREEN}Cleaned${NC}\n"
-
 libft_clean:
 		@make -C ./libft clean
 
 fclean: clean libft_fclean
 		@rm -f $(NAME)
+		@rm -fr $(OBJS) $(OBJ_DIR)
 		@rm -f **/*~
 
 libft_fclean:

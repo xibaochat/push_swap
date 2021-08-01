@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		get_len_wo_extra_slash(char *s)
+int	get_len_wo_extra_slash(char *s)
 {
 	int	i;
 	int	nb_slash;

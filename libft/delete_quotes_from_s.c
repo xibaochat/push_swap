@@ -57,7 +57,7 @@ static void	copy_wo_quotes(char *new, char *s)
 	}
 }
 
-void		delete_quotes_from_s(char **s)
+void	delete_quotes_from_s(char **s)
 {
 	int		final_len;
 	char	*new;

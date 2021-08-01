@@ -1,0 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_instruction_and_sort.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
+/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	show_arr_value2(t_stack *stack)
+{
+	int n = stack->top;
+
+	while (n > -1)
+		ft_putstr_w_new_line(stack->arr[n--]);
+}
+
+void	do_instruction(t_stack *a, t_stack *b, char *line)
+{
+	if (!ft_strcmp(line, "sa") && a->top > 0)
+		swatch_value(a->arr + (a->top), a->arr + (a->top - 1));
+	else if (!ft_strcmp(line, "sb") && b->top > 0)
+		swatch_value(b->arr + (b->top), a->arr + (b->top - 1));
+	else if (!ft_strcmp(line, "ss"))
+		swatch_two_stack(a, b);
+	else if (!ft_strcmp(line, "pa") && b->top > -1)
+		a->arr[++a->top] = b->arr[b->top--];
+	else if (!ft_strcmp(line, "pb") && a->top > -1)
+		b->arr[++b->top] = a->arr[a->top--];
+	else if (!ft_strcmp(line, "ra") && a->top > 0)
+		rotate_stack(a);
+	else if (!ft_strcmp(line, "rb") && b->top > 0)
+		rotate_stack(b);
+	else if (!ft_strcmp(line, "rr"))
+		rotate_two_up(a, b);
+	else if (!ft_strcmp(line, "rra") && a->top > 0)
+		reverse_stack(a);
+	else if (!ft_strcmp(line, "rrb") && b->top > 0)
+		reverse_stack(b);
+	else if (!ft_strcmp(line, "rrr"))
+		reverse_two_stack(a, b);
+	ft_putstr_w_new_line("STACK A");
+	show_arr_value2(a);
+	ft_putstr_w_new_line("STACK B");
+	show_arr_value2(b);
+}
+
+void	get_instruction_and_sort(t_stack *a, t_stack *b)
+{
+	char	*line;
+
+	line = NULL;
+	while (get_next_line(0, &line))
+	{
+		if (line && !line[0])
+		{
+			free(line);
+			check_a_is_sorted(a, b);
+			return ;
+		}
+		if (has_invalid_instruction(line))
+		{
+			ft_putstr_fd("Error\n", STDERR_FILENO);
+			exit(0);
+		}
+		do_instruction(a, b, line);
+		free(line);
+	}
+	check_a_is_sorted(a, b);
+	free(line);
+}

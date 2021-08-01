@@ -32,7 +32,7 @@ static int	get_new_len(char *s, char *sep)
 	return (lens);
 }
 
-char		*ft_strrmv(char *s, char *sep)
+char	*ft_strrmv(char *s, char *sep)
 {
 	int		i;
 	int		len;

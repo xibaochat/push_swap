@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   do_instruction2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/02 19:10:21 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/08 15:55:49 by xinwang          ###   ########.fr       */
+/*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
+/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	nigun_static(char	**str, int return_value)
+void	reverse_two_stack(t_stack *a, t_stack *b)
 {
-	if (*str)
-		free(*str);
-	*str = NULL;
-	return (return_value);
+	if (a->top > 0)
+		reverse_stack(a);
+	if (b->top > 0)
+		reverse_stack(b);
 }

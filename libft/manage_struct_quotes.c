@@ -26,7 +26,7 @@ static void	char_is_double_quote(t_quo *q)
 	}
 }
 
-void		manage_struct_quotes(t_quo *q, const char *str, int i)
+void	manage_struct_quotes(t_quo *q, const char *str, int i)
 {
 	char	c;
 

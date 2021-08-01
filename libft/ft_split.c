@@ -42,7 +42,7 @@ static int	get_lens(char *str, int i, char c)
 	return (lens);
 }
 
-char		**get_tab(char **arr, char *str, char c)
+char	**get_tab(char **arr, char *str, char c)
 {
 	int			i;
 	int			j;
@@ -69,7 +69,7 @@ char		**get_tab(char **arr, char *str, char c)
 	return (arr);
 }
 
-char		**empty_arr(void)
+char	**empty_arr(void)
 {
 	char		**res;
 
@@ -78,7 +78,7 @@ char		**empty_arr(void)
 	return (res);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char		*str;
 	int			words_nb;

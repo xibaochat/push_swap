@@ -1,9 +1,9 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_is_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: xinwang <pnielly@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
 /*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
@@ -12,31 +12,29 @@
 
 #include "push_swap.h"
 
-int	check_arg(t_stack *ptr)
+void	check_a_is_sorted(t_stack *a, t_stack *b)
 {
-	if (!isNumber(ptr) || has_extrem_nb(ptr)
-		|| has_duplicates_arg(ptr))
+	int	i;
+
+	i = 0;
+	if (a->top + 1 == a->lens && b->top == -1)
 	{
-		ft_putstr_fd("Error\n", STDERR_FILENO);
-		if (ptr->from_arg)
-			ft_tabfree(ptr->arr);
-		return (1);
+		a->tab = transfer_char_to_int_of_arr(a);
+		while (i < a->top)
+		{
+			if (a->tab[i] < a->tab[i + 1])
+			{
+				ft_putstr_fd("KO\n", STDERR_FILENO);
+				free(a->tab);
+				exit(0);
+			}
+			i++;
+		}
+		ft_putstr_fd("OK\n", 1);
 	}
-	return (0);
-}
-
-int	main(int ac, char **av)
-{
-	t_stack	a;
-	t_stack	b;
-
-	if (ac <= 1)
-		return (0);
-	init_stack_a(ac, av, &a);
-	if (check_arg(&a))
-		return (0);
-	init_stack_b(&a, &b);
-	get_instruction_and_sort(&a, &b);
-	free_stack(&a, &b);
-	return (0);
+	else
+	{
+		ft_putstr_fd("KO\n", STDERR_FILENO);
+		exit(0);
+	}
 }

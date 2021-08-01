@@ -21,13 +21,13 @@
 # define SINGLE 39
 # define DOUBLE 34
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
-typedef struct	s_quo
+typedef struct s_quo
 {
 	int	have_quote;
 	int	double_quote;
@@ -120,5 +120,6 @@ void			ft_putstr_echo(char *s);
 int				get_next_line(int fd, char **line);
 int				nigun_static(char	**str, int return_value);
 int				get_nb_words_in_arr(char *str, char c);
+int				no_newline_in_str(char *str);
 
 #endif

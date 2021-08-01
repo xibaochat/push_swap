@@ -20,7 +20,7 @@ static char	*get_converted_str(char *str, unsigned int res, int *i)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int				i;
 	unsigned int	res;

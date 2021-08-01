@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 		tmp = i;
 		j = 0;
 		while (s[tmp] && to_find[j]
-				&& (s[tmp] == to_find[j]) && tmp < len)
+			&& (s[tmp] == to_find[j]) && tmp < len)
 		{
 			tmp++;
 			j++;

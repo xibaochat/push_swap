@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
+/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*transfer_char_to_int_of_arr(t_stack *stack)
@@ -12,20 +24,21 @@ int	*transfer_char_to_int_of_arr(t_stack *stack)
 	return (tab);
 }
 
-void rvereseArray(char **arr, int start, int end)
+void	rvereseArray(char **arr, int start, int end)
 {
 	char	*temp;
-    while (start < end)
-    {
-        temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        start++;
-        end--;
-    }
+
+	while (start < end)
+	{
+		temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+		start++;
+		end--;
+	}
 }
 
-void		init_stack_a(int ac, char **av, t_stack *ptr)
+void	init_stack_a(int ac, char **av, t_stack *ptr)
 {
 	int		lens;
 
@@ -44,10 +57,10 @@ void		init_stack_a(int ac, char **av, t_stack *ptr)
 	}
 	rvereseArray(ptr->arr, 0, ptr->lens - 1);
 	ptr->tab = NULL;
-	ptr->top = ptr->lens -1;
+	ptr->top = ptr->lens - 1;
 }
 
-void		init_stack_b(t_stack *a, t_stack *b)
+void	init_stack_b(t_stack *a, t_stack *b)
 {
 	b->top = -1;
 	b->lens = a->lens;
