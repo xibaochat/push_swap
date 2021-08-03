@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   do_instruction2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,10 @@
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	reverse_two_stack_tab(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
-
-	if (ac <= 1)
-		return (0);
-	init_stack_a(ac, av, &a);
-	if (check_arg(&a))
-		return (0);
-	init_stack_b(&a, &b);
-	get_instruction_and_sort(&a, &b);
-	free_stack(&a, &b);
-	return (0);
+	if (a->top > 0)
+		reverse_stack_tab(a);
+	if (b->top > 0)
+		reverse_stack_tab(b);
 }

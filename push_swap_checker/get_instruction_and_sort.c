@@ -20,6 +20,17 @@ void	show_arr_value2(t_stack *stack)
 		ft_putstr_w_new_line(stack->arr[n--]);
 }
 
+void	show_arr_value3(t_stack *stack)
+{
+	int n = stack->top;
+
+	while (n > -1)
+	{
+		ft_putnbr_fd(stack->tab[n--], 1);
+		ft_putstr_fd("\n", 1);
+	}
+}
+
 void	do_instruction(t_stack *a, t_stack *b, char *line)
 {
 	if (!ft_strcmp(line, "sa") && a->top > 0)

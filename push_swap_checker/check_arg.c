@@ -81,3 +81,16 @@ int	has_invalid_instruction(char *line)
 		return (1);
 	return (0);
 }
+
+int	check_arg(t_stack *ptr)
+{
+	if (!isNumber(ptr) || has_extrem_nb(ptr)
+		|| has_duplicates_arg(ptr))
+	{
+		ft_putstr_fd("Error\n", STDERR_FILENO);
+		if (ptr->from_arg)
+			ft_tabfree(ptr->arr);
+		return (1);
+	}
+	return (0);
+}

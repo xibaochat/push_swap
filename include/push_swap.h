@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include <stdbool.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -43,5 +42,26 @@ void	rotate_stack(t_stack *stack);
 void	rotate_two_up(t_stack *a, t_stack *b);
 void	reverse_stack(t_stack *a);
 void	reverse_two_stack(t_stack *a, t_stack *b);
+int		check_arg(t_stack *ptr);
+void	do_push_swap(t_stack *a, t_stack *b);
+int		sort_and_get_mid_nb(int *arr, int n);
+void	swatch_value_tab(int *s1, int *s2);
+void	swatch_two_stack_tab(t_stack *a, t_stack *b);
+void	rotate_stack_tab(t_stack *stack);
+void	rotate_two_up_tab(t_stack *a, t_stack *b);
+void	reverse_stack_tab(t_stack *a);
+void	reverse_two_stack_tab(t_stack *a, t_stack *b);
+
+
+
+
+
+
+
+// DETELT AFTER
+void	show_arr_value2(t_stack *stack);
+void	show_arr_value3(t_stack *stack);
+
+
 
 #endif

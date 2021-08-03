@@ -68,5 +68,5 @@ clean:
 
 fclean: clean
 		@rm -f $(NAME)
-
+		@rm -f #*#
 re: fclean all

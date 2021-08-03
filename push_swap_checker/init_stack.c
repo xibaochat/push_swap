@@ -65,5 +65,8 @@ void	init_stack_b(t_stack *a, t_stack *b)
 	b->top = -1;
 	b->lens = a->lens;
 	b->from_arg = 0;
-	b->arr = (char **)malloc(sizeof(char *) * (b->lens));
+	if (a->tab)
+		b->tab = (int *)malloc(sizeof(int) * (b->lens));
+	else
+		b->arr = (char **)malloc(sizeof(char *) * (b->lens));
 }
