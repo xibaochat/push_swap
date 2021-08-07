@@ -72,7 +72,7 @@ void	do_it(int nb_to_manage, t_stack *src, t_stack *dest)
 	//move from b to a
 	if (src == a && nb_to_manage == 1)
 		return ;
-	if (arr_is_sorted(a->lens - 1, a) && b->top == -1)//a is sorted and b is vide
+	if (arr_is_sorted(a->lens, a) && b->top == -1)//a is sorted and b is vide
 		return ;
 	if (src == a && (nb_to_manage < 3 || arr_is_sorted(nb_to_manage, a)))
 		manage_a(nb_to_manage, a, b);
