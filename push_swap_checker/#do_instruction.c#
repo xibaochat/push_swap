@@ -39,11 +39,11 @@ void	rotate_stack(t_stack *stack)
 		return ;
 	n = stack->top;
 	t = stack->arr[stack->top];
-	ft_putstr_w_new_line(t);
+	ft_putstr_w_new_line(ft_itoa(t));
 	while (--n >= 0)
 	{
 		ft_putstr_w_new_line("++++++ start +++++++");
-		ft_putstr_w_new_line(stack->arr[n]);
+		ft_putstr_w_new_line(ft_itoa(stack->arr[n]));
 		stack->arr[n + 1] = stack->arr[n];
 		ft_putstr_w_new_line("++++++ end +++++++");
 	}

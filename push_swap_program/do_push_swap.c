@@ -1,33 +1,5 @@
 #include "push_swap.h"
 
-int		arr_is_sorted(t_stack *a)
-{
-	int	i;
-
-	i = 0;
-	while (i < a->top)
-	{
-		if (a->tab[i] > a->tab[i + 1])
-			i++;
-		else
-			return (0);
-	}
-	return (1);
-}
-
-int		nb_to_group(t_stack *ptr)
-{
-	int	lens;
-	int	nb_to_group;
-
-	lens = ptr->top + 1;
-	if (lens % 2 == 0)
-		nb_to_group = lens / 2;
-	else
-		nb_to_group = (lens - 1) / 2;
-	return (nb_to_group);
-}
-
 void	reverse_and_pb(t_stack *a, t_stack *b)
 {
 	reverse_stack_tab(a);
@@ -49,22 +21,18 @@ void	rotate_and_pb(int mid, int *n, t_stack *a, t_stack *b)
 	}
 }
 
-void	send_ele_from_a_to_b(int mid, t_stack *a, t_stack *b)
+void	send_ele_from_a_to_b(int nb, int nb_to_b, int mid, t_stack *a, t_stack *b)
 {
-	int	nb_to_b;
-
-	if (a->top == 1)
-		return ;
-	nb_to_b = nb_to_group(a);
 	while (nb_to_b)
 	{
-		while (a->tab[a->top] < mid && nb_to_b)
+		while (nb_to_b && a->tab[a->top] < mid)
 		{
 			b->tab[++(b->top)] = a->tab[(a->top)--];
 			ft_putstr_w_new_line("pb");
 			nb_to_b--;
 		}
-		while (a->tab[0] < mid && nb_to_b)
+		//check nb from bottom of chunk
+		while (a->tab[a->top + 1 - nb_to_b] < mid && nb_to_b)
 		{
 			reverse_and_pb(a, b);
 			nb_to_b--;
@@ -81,33 +49,40 @@ void	send_ele_from_a_to_b(int mid, t_stack *a, t_stack *b)
 			nb_to_b--;
 		}
 	}
-	ft_putstr_w_new_line("-----STACK A-----");
-	show_arr_value3(a);
-	ft_putstr_w_new_line("\n-----STACK B-----");
-	show_arr_value3(b);
 }
 
-void	copy_tab(int *tmp, t_stack *a)
-{
-	int	i;
 
-	i = -1;
-	while (++i <= a->top)
-		tmp[i] = a->tab[i];
-}
-
-void	do_push_swap(t_stack *a, t_stack *b)
+void	do_it(int nb_to_manage, t_stack *src, t_stack *dest)
 {
 	int	mid;
-	int	*tmp;
+	int	nb_to_move;
+	t_stack	*a;
+	t_stack	*b;
 
-	if (arr_is_sorted(a) || a->top == 1)
+	a = src->a_add;
+	b = src->b_add;
+	nb_to_move = 0;
+	//move from b to a
+	if (arr_is_sorted(a->lens - 1, a) && b->top == -1)//a is sorted and b is vide
 		return ;
-	tmp = (int *)malloc(sizeof(int) * (a->top + 1));
-	copy_tab(tmp, a);
-	mid = sort_and_get_mid_nb(tmp, a->top + 1);
-	send_ele_from_a_to_b(mid, a, b);
-	free(tmp);
-	if (!arr_is_sorted(a) && a->top != 1)
-		do_push_swap(a, b);
+	if (src == a && (nb_to_manage < 3 || arr_is_sorted(nb_to_manage, a)))
+		manage_a(nb_to_manage, a, b);
+	else if (src == b && (nb_to_manage < 3 || arr_is_desending(nb_to_manage, b)))
+		manage_b(nb_to_manage, a, b);
+	else
+	{
+		if(!arr_is_sorted(nb_to_manage, a) || src == b)
+		{
+			nb_to_move = nb_to_group(nb_to_manage, src);
+			mid = get_mid_nb(nb_to_manage, src);
+			if (src == a)
+				send_ele_from_a_to_b(nb_to_manage, nb_to_move, mid, a, b);
+			else
+				send_ele_from_b_to_a(nb_to_move, mid, b, a);
+			if (!arr_is_sorted(nb_to_manage, a) || src == b)
+				do_it(nb_to_manage - nb_to_move, src, dest);
+		}
+		do_it(nb_to_move, dest, src);
+	}
+
 }

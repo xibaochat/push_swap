@@ -15,7 +15,9 @@
 
 # include "libft.h"
 # include <stdbool.h>
+# include <stdio.h>
 
+typedef struct s_stack t_stack;
 typedef struct s_stack
 {
 	int		from_arg;
@@ -23,7 +25,8 @@ typedef struct s_stack
 	char	**arr;
 	int		*tab;
 	int		top;
-
+	t_stack	*a_add;
+	t_stack	*b_add;
 }				t_stack;
 
 void	init_stack_a(int ac, char **av, t_stack *ptr);
@@ -43,7 +46,6 @@ void	rotate_two_up(t_stack *a, t_stack *b);
 void	reverse_stack(t_stack *a);
 void	reverse_two_stack(t_stack *a, t_stack *b);
 int		check_arg(t_stack *ptr);
-void	do_push_swap(t_stack *a, t_stack *b);
 int		sort_and_get_mid_nb(int *arr, int n);
 void	swatch_value_tab(int *s1, int *s2);
 void	swatch_two_stack_tab(t_stack *a, t_stack *b);
@@ -51,6 +53,19 @@ void	rotate_stack_tab(t_stack *stack);
 void	rotate_two_up_tab(t_stack *a, t_stack *b);
 void	reverse_stack_tab(t_stack *a);
 void	reverse_two_stack_tab(t_stack *a, t_stack *b);
+void	do_it(int nb, t_stack *src, t_stack *dest);
+int		arr_is_sorted(int n, t_stack *a);
+int		nb_to_group(int n, t_stack *ptr);
+void	copy_tab(int n, int *tmp, t_stack *a);
+void    swatch_when_stack_has_two_unsorted_element(t_stack *a);
+void	swatch_b_when_stack_has_two_unsorted_element(t_stack *a);
+int		get_mid_nb(int n, t_stack *ptr);
+int		arr_is_desending(int n, t_stack *ptr);
+void	move_all_ele_from_b_to_a(int n, t_stack *a, t_stack *b);
+void	manage_a(int n, t_stack *a,  t_stack *b);
+void	manage_b(int n, t_stack *a,  t_stack *b);
+
+void	send_ele_from_b_to_a(int nb_to_move, int m, t_stack *b, t_stack *a);
 
 
 
