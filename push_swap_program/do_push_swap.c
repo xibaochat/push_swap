@@ -82,12 +82,12 @@ void	do_it(int nb_to_manage, t_stack *src, t_stack *dest)
 	{
 		if(!arr_is_sorted(nb_to_manage, a) || src == b)
 		{
-			nb_to_move = nb_to_group(nb_to_manage, src);
 			mid = get_mid_nb(nb_to_manage, src);
+			nb_to_move = nb_to_group(nb_to_manage, src);
 			if (src == a)
 				send_ele_from_a_to_b(nb_to_manage, nb_to_move, mid, a, b);
 			else
-				send_ele_from_b_to_a(nb_to_move, mid, b, a);
+				send_ele_from_b_to_a(nb_to_manage, nb_to_move, mid, b, a);
 			if (!arr_is_sorted(nb_to_manage, a) || src == b)
 				do_it(nb_to_manage - nb_to_move, src, dest);
 		}

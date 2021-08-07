@@ -18,7 +18,7 @@ USE = init_stack.c ft_stack_free.c check_is_sorted.c \
 
 SRC2 = push_swap.c do_push_swap.c get_mid_nb.c \
 		do_instruction_on_tab.c do_instruction_on_tab2.c utile.c \
-		move_element.c push_swap_instructions.c
+		move_element.c push_swap_instructions.c utile2.c
 
 SRC_PATH = $(addprefix $(SRCS_PATH)/,$(SRC))
 USE_PATH = $(addprefix $(SRCS_PATH)/,$(USE))

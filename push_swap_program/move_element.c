@@ -62,31 +62,68 @@ void	manage_a(int n, t_stack *a,  t_stack *b)
 	}
 }
 
-void    send_ele_from_b_to_a(int nb_to_move, int mid, t_stack *b, t_stack *a)
+void    send_ele_from_b_to_a(int total_nb, int nb_to_move, int mid, t_stack *b, t_stack *a)
 {
 	int	t;
+	int	lens;
+	int	*sorted_tab;
 
-	t = 0;
-	while (nb_to_move)
+ 	t = 0;
+	ft_putstr("(O) ------- ");
+	ft_putstr_w_new_line(ft_itoa(nb_to_move));
+	if (nb_to_move == 3 || nb_to_move == 2)
 	{
-		while (nb_to_move && b->tab[b->top] > mid)
+		ft_putstr_w_new_line("-------- 8====D --------");
+		lens = nb_to_move;
+		sorted_tab = get_sorted_tab(total_nb, nb_to_move, mid, b);
+		while (--lens >= 0)
 		{
-			a->tab[++(a->top)] = b->tab[b->top--];
-			ft_putstr_w_new_line("pa");
-			nb_to_move--;
+			while (b->tab[b->top] != sorted_tab[lens])
+			{
+				rotate_stack(b);
+				/* ft_putstr_w_new_line("-------- GO INSIDE  --------"); */
+				/* for(int i=0; i < nb_to_move;i++) */
+				/* 	ft_putstr_w_new_line(ft_itoa(sorted_tab[i])); */
+				/* ft_putstr_w_new_line("--------  GO OUTSIDE --------"); */
+				ft_putstr_w_new_line("rb");
+				t++;
+			}
+
+			if (b->tab[b->top] == sorted_tab[lens])
+			{
+				ft_putstr_w_new_line("pa");
+				a->tab[++(a->top)] = b->tab[b->top--];
+			}
+			while (t-- > 0)
+			{
+				reverse_stack(b);
+				ft_putstr_w_new_line("rrb");
+			}
 		}
-		while (nb_to_move && b->tab[b->top] <= mid)
+		free(sorted_tab);
+	}
+	else
+	{
+		while (nb_to_move)
 		{
-			rotate_stack(b);
-			ft_putstr_w_new_line("rb");
-			t++;
+			while (nb_to_move && b->tab[b->top] > mid)
+			{
+				a->tab[++(a->top)] = b->tab[b->top--];
+				ft_putstr_w_new_line("pa");
+				nb_to_move--;
+			}
+			while (nb_to_move && b->tab[b->top] <= mid)
+			{
+				rotate_stack(b);
+				ft_putstr_w_new_line("rb");
+				t++;
+			}
+		}
+		while (t)
+		{
+			reverse_stack(b);
+			ft_putstr_w_new_line("rrb");
+			t--;
 		}
 	}
-	while (t)
-	{
-		reverse_stack(b);
-		ft_putstr_w_new_line("rrb");
-		t--;
-	}
-
 }

@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
-/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*   Updated: 2021/08/07 22:19:23 by baobe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,15 @@ void	move_all_ele_from_b_to_a(int n, t_stack *a, t_stack *b);
 void	manage_a(int n, t_stack *a,  t_stack *b);
 void	manage_b(int n, t_stack *a,  t_stack *b);
 
-void	send_ele_from_b_to_a(int nb_to_move, int m, t_stack *b, t_stack *a);
-
-
-
-
+void	send_ele_from_b_to_a(int nb_to_move, int n, int m, t_stack *b, t_stack *a);
+void		sort_tab(int    **tab, int n);
 
 
 
 // DETELT AFTER
 void	show_arr_value2(t_stack *stack);
 void	show_arr_value3(t_stack *stack);
-
+int		*get_sorted_tab(int n, int n1, int m, t_stack *b);
 
 
 #endif
