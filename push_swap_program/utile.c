@@ -34,8 +34,7 @@ void	copy_tab(int nb, int *tmp, t_stack *ptr)
 
 void	swatch_when_stack_has_two_unsorted_element(t_stack *a)
 {
-	if (a->tab[a->top] && a->tab[a->top - 1] &&
-		(a->tab[a->top] > a->tab[a->top - 1]))
+	if (a->tab[a->top] > a->tab[a->top - 1])
 	{
 		swatch_value_tab(&a->tab[a->top], &a->tab[a->top - 1]);
 		ft_putstr_w_new_line("sa");
@@ -44,8 +43,7 @@ void	swatch_when_stack_has_two_unsorted_element(t_stack *a)
 
 void	swatch_b_when_stack_has_two_unsorted_element(t_stack *a)
 {
-	if (a->tab[a->top] && a->tab[a->top - 1] &&
-		(a->tab[a->top] < a->tab[a->top - 1]))
+	if (a->tab[a->top] < a->tab[a->top - 1])
 	{
 		swatch_value_tab(&a->tab[a->top], &a->tab[a->top - 1]);
 		ft_putstr_w_new_line("sb");
