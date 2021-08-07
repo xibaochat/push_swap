@@ -31,7 +31,7 @@ void	move_all_ele_from_b_to_a(int n, t_stack *a, t_stack *b)
 {
 	while (n-- > 0)
 	{
-		a->arr[++a->top] = b->arr[b->top--];
+		a->tab[++a->top] = b->tab[b->top--];
 		ft_putstr_w_new_line("pa");
 	}
 }
@@ -43,7 +43,7 @@ void	manage_b(int n, t_stack *a,  t_stack *b)
 	if (arr_is_desending(n, b))
 		while (n-- > 0)
 		{
-			a->arr[++a->top] = b->arr[b->top--];
+			a->tab[++a->top] = b->tab[b->top--];
 			ft_putstr_w_new_line("pa");
 		}
 }
@@ -56,7 +56,7 @@ void	manage_a(int n, t_stack *a,  t_stack *b)
 	{
 		while (n-- > 0)
 		{
-			b->arr[++b->top] = a->arr[a->top--];
+			b->tab[++b->top] = a->tab[a->top--];
 			ft_putstr_w_new_line("pb");
 		}
 	}

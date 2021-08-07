@@ -15,9 +15,11 @@ void	rotate_and_pb(int mid, int *n, t_stack *a, t_stack *b)
 	if (a->tab[a->top] < mid)
 	{
 		ft_putstr_w_new_line("ra");
-		b->tab[++b->top] = a->tab[a->top--];
+		++(b->top);
+		b->tab[b->top] = a->tab[a->top];
+		--(a->top);
 		ft_putstr_w_new_line("pb");
-		(*n)--;
+		--(*n);
 	}
 }
 
@@ -27,15 +29,17 @@ void	send_ele_from_a_to_b(int nb, int nb_to_b, int mid, t_stack *a, t_stack *b)
 	{
 		while (nb_to_b && a->tab[a->top] < mid)
 		{
-			b->tab[++(b->top)] = a->tab[(a->top)--];
+			++(b->top);
+			b->tab[b->top] = a->tab[a->top];
+			--(a->top);
 			ft_putstr_w_new_line("pb");
-			nb_to_b--;
+			--nb_to_b;
 		}
 		//check nb from bottom of chunk
 		while (a->tab[a->top + 1 - nb_to_b] < mid && nb_to_b)
 		{
 			reverse_and_pb(a, b);
-			nb_to_b--;
+			--nb_to_b;
 		}
 		while (a->tab[a->top] >= mid && nb_to_b)
 		{
@@ -44,9 +48,11 @@ void	send_ele_from_a_to_b(int nb, int nb_to_b, int mid, t_stack *a, t_stack *b)
 		}
 		if (a->tab[a->top] < mid)
 		{
-			b->tab[++(b->top)] = a->tab[(a->top)--];
+			++(b->top);
+			b->tab[b->top] = a->tab[a->top];
+			--(a->top);
 			ft_putstr_w_new_line("pb");
-			nb_to_b--;
+			--nb_to_b;
 		}
 	}
 }

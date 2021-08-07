@@ -14,11 +14,11 @@ SRC = main.c init_stack.c ft_stack_free.c check_arg.c \
 
 USE = init_stack.c ft_stack_free.c check_is_sorted.c \
 	check_arg.c get_instruction_and_sort.c \
-	do_instruction.c do_instruction2.c
+	do_instruction2.c
 
 SRC2 = push_swap.c do_push_swap.c get_mid_nb.c \
 		do_instruction_on_tab.c do_instruction_on_tab2.c utile.c \
-		move_element.c
+		move_element.c push_swap_instructions.c
 
 SRC_PATH = $(addprefix $(SRCS_PATH)/,$(SRC))
 USE_PATH = $(addprefix $(SRCS_PATH)/,$(USE))
@@ -52,15 +52,17 @@ YELLOW=\033[93m
 GREEN=\033[0;32m
 NC=\033[0;0m
 
-all: $(NAME) $(NAME2)
+# all: $(NAME) $(NAME2)
 
 
-$(NAME): libft_compile
-		@mkdir -p $(OBJ_DIR)
-		@$(CC) $(CC_FLAGS) -I $(HEADER_DIR) -c $(SRC_PATH)
-		@mv $(OBJ) $(OBJ_DIR)
-		@$(CC) $(CC_FLAGS) $(OBJS) -L ./libft -lft -o $(NAME)
-		@printf "${BLUE}Checker${NC}:      ${DARK_YELLOW}Compilation is done    ${YELLOW}%-15.15s${NC}\n"
+# $(NAME): libft_compile
+# 		@mkdir -p $(OBJ_DIR)
+# 		@$(CC) $(CC_FLAGS) -I $(HEADER_DIR) -c $(SRC_PATH)
+# 		@mv $(OBJ) $(OBJ_DIR)
+# 		@$(CC) $(CC_FLAGS) $(OBJS) -L ./libft -lft -o $(NAME)
+# 		@printf "${BLUE}Checker${NC}:      ${DARK_YELLOW}Compilation is done    ${YELLOW}%-15.15s${NC}\n"
+
+all: $(NAME2)
 
 $(NAME2): libft_compile
 		@mkdir -p $(OBJ_DIR2)

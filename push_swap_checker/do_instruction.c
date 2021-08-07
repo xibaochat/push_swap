@@ -34,21 +34,14 @@ void	rotate_stack(t_stack *stack)
 	int		n;
 	char	*t;
 
-	ft_putstr_w_new_line("------ START -------");
-	if (!stack)
-		return ;
-	n = stack->top;
-	t = stack->arr[stack->top];
-	ft_putstr_w_new_line(t);
-	while (--n >= 0)
+	n = stack->top - 1;
+	t = (stack)->arr[stack->top];
+	while (n >= 0)
 	{
-		ft_putstr_w_new_line("++++++ start +++++++");
-		ft_putstr_w_new_line(stack->arr[n]);
-		stack->arr[n + 1] = stack->arr[n];
-		ft_putstr_w_new_line("++++++ end +++++++");
+		(stack)->arr[n + 1] = (stack)->arr[n];
+		n--;
 	}
 	stack->arr[0] = t;
-	ft_putstr_w_new_line("------ END -------");
 }
 
 void	rotate_two_up(t_stack *a, t_stack *b)

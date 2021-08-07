@@ -46,7 +46,7 @@ void	rotate_two_up(t_stack *a, t_stack *b);
 void	reverse_stack(t_stack *a);
 void	reverse_two_stack(t_stack *a, t_stack *b);
 int		check_arg(t_stack *ptr);
-int		sort_and_get_mid_nb(int *arr, int n);
+int		sort_and_get_mid_nb(int *tab, int n);
 void	swatch_value_tab(int *s1, int *s2);
 void	swatch_two_stack_tab(t_stack *a, t_stack *b);
 void	rotate_stack_tab(t_stack *stack);
