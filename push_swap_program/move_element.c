@@ -2,12 +2,12 @@
 
 int		arr_is_sorted(int n, t_stack *ptr)
 {
-	n--;
-	while (n > 0 && ptr->tab[n] && ptr->tab[n - 1])
+	--n;
+	while (n > 0)
 	{
 		if (ptr->tab[n] > ptr->tab[n - 1])
 			return (0);
-		n--;
+		--n;
 	}
 	return (1);
 }
@@ -17,12 +17,12 @@ int		arr_is_desending(int n, t_stack *ptr)
 	int	index;
 
 	index = ptr->top;
-	while (n > 1 && ptr->tab[index] && ptr->tab[index - 1])
+	while (n > 1)
 	{
 		if (ptr->tab[index] < ptr->tab[index - 1])
 			return (0);
-		n--;
-		index--;
+		--n;
+		--index;
 	}
 	return (1);
 }
