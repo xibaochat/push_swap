@@ -99,7 +99,7 @@ void    send_ele_from_b_to_a(int total_nb, int nb_to_move, int mid, t_stack *b, 
 				ft_putstr_w_new_line("pa");
 				a->tab[++(a->top)] = b->tab[b->top--];
 			}
-			while (t-- >= 0)
+			while (t-- > 0)
 			{
 				reverse_stack(b);
 				ft_putstr_w_new_line("rrb");
