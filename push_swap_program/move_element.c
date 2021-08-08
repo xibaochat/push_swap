@@ -52,14 +52,14 @@ void	manage_a(int n, t_stack *a,  t_stack *b)
 {
 	if (n == 2)
 		swatch_when_stack_has_two_unsorted_element(a);
-	if (arr_is_sorted(n, a) && n != a->top + 1)
-	{
-		while (n-- > 0)
-		{
-			b->tab[++b->top] = a->tab[a->top--];
-			ft_putstr_w_new_line("pb");
-		}
-	}
+	/* if (arr_is_sorted(n, a) && n != a->lens) */
+	/* { */
+	/* 	while (n-- > 0) */
+	/* 	{ */
+	/* 		b->tab[++b->top] = a->tab[a->top--]; */
+	/* 		ft_putstr_w_new_line("pb"); */
+	/* 	} */
+	/* } */
 }
 
 void    send_ele_from_b_to_a(int total_nb, int nb_to_move, int mid, t_stack *b, t_stack *a)
