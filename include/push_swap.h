@@ -67,7 +67,7 @@ void	manage_b(int n, t_stack *a,  t_stack *b);
 
 void	send_ele_from_b_to_a(int nb_to_move, int n, int m, t_stack *b, t_stack *a);
 void		sort_tab(int    **tab, int n);
-
+int     chunk_is_sorted(int n, t_stack *ptr);
 
 
 // DETELT AFTER

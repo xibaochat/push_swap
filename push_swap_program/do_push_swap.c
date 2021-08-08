@@ -32,6 +32,9 @@ void	rotate_and_pb(int mid, int *n, t_stack *a, t_stack *b)
 
 void	send_ele_from_a_to_b(int nb, int nb_to_b, int mid, t_stack *a, t_stack *b)
 {
+	int n_rotation;
+
+	n_rotation = 0;
 	while (nb_to_b)
 	{
 		while (nb_to_b && a->tab[a->top] < mid)
@@ -46,6 +49,7 @@ void	send_ele_from_a_to_b(int nb, int nb_to_b, int mid, t_stack *a, t_stack *b)
 		{
 			rotate_stack_tab(a);
 			ft_putstr_w_new_line("ra");
+			++n_rotation;
 		}
 		if (a->tab[a->top] < mid)
 		{
@@ -55,6 +59,11 @@ void	send_ele_from_a_to_b(int nb, int nb_to_b, int mid, t_stack *a, t_stack *b)
 			ft_putstr_w_new_line("pb");
 			--nb_to_b;
 		}
+	}
+	while (n_rotation-- > 0)
+	{
+		reverse_stack(a);
+		ft_putstr_w_new_line("rra");
 	}
 }
 
@@ -74,13 +83,13 @@ void	do_it(int nb_to_manage, t_stack *src, t_stack *dest)
 		return ;
 	if (arr_is_sorted(a->lens, a) && b->top == -1)//a is sorted and b is vide
 		return ;
-	if (src == a && (nb_to_manage < 3 || arr_is_sorted(nb_to_manage, a)))
+	if (src == a && (nb_to_manage < 3 || chunk_is_sorted(nb_to_manage, a)))
 		manage_a(nb_to_manage, a, b);
 	else if (src == b && (nb_to_manage < 3 || arr_is_desending(nb_to_manage, b)))
 		manage_b(nb_to_manage, a, b);
 	else
 	{
-		if(!arr_is_sorted(nb_to_manage, a) || src == b)
+		if(!chunk_is_sorted(nb_to_manage, a) || src == b)
 		{
 			mid = get_mid_nb(nb_to_manage, src);
 			nb_to_move = nb_to_group(nb_to_manage, src);
@@ -88,9 +97,11 @@ void	do_it(int nb_to_manage, t_stack *src, t_stack *dest)
 				send_ele_from_a_to_b(nb_to_manage, nb_to_move, mid, a, b);
 			else
 				send_ele_from_b_to_a(nb_to_manage, nb_to_move, mid, b, a);
-			if (!arr_is_sorted(nb_to_manage, a) || src == b)
+			if ((src == a && !chunk_is_sorted(nb_to_manage, a)) || (src == b && nb_to_move <= 3))
 				do_it(nb_to_manage - nb_to_move, src, dest);
 		}
 		do_it(nb_to_move, dest, src);
+		if (src == b && nb_to_move > 3)
+			do_it(nb_to_manage - nb_to_move, src, dest);
 	}
 }

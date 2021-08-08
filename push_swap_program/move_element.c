@@ -1,5 +1,18 @@
 #include "push_swap.h"
 
+int		chunk_is_sorted(int n, t_stack *ptr)
+{
+	int i = ptr->top;
+	while (i > ptr->top - n)
+	{
+		if (ptr->tab[i] > ptr->tab[i - 1])
+			return (0);
+		--i;
+	}
+	return (1);
+}
+
+
 int		arr_is_sorted(int n, t_stack *ptr)
 {
 	--n;
@@ -52,14 +65,6 @@ void	manage_a(int n, t_stack *a,  t_stack *b)
 {
 	if (n == 2)
 		swatch_when_stack_has_two_unsorted_element(a);
-	/* if (arr_is_sorted(n, a) && n != a->lens) */
-	/* { */
-	/* 	while (n-- > 0) */
-	/* 	{ */
-	/* 		b->tab[++b->top] = a->tab[a->top--]; */
-	/* 		ft_putstr_w_new_line("pb"); */
-	/* 	} */
-	/* } */
 }
 
 void    send_ele_from_b_to_a(int total_nb, int nb_to_move, int mid, t_stack *b, t_stack *a)
@@ -94,7 +99,7 @@ void    send_ele_from_b_to_a(int total_nb, int nb_to_move, int mid, t_stack *b, 
 				ft_putstr_w_new_line("pa");
 				a->tab[++(a->top)] = b->tab[b->top--];
 			}
-			while (t-- > 0)
+			while (t-- >= 0)
 			{
 				reverse_stack(b);
 				ft_putstr_w_new_line("rrb");
@@ -116,14 +121,14 @@ void    send_ele_from_b_to_a(int total_nb, int nb_to_move, int mid, t_stack *b, 
 			{
 				rotate_stack(b);
 				ft_putstr_w_new_line("rb");
-				t++;
+				++t;
 			}
 		}
-		while (t)
+		while (t > 0)
 		{
 			reverse_stack(b);
 			ft_putstr_w_new_line("rrb");
-			t--;
+			--t;
 		}
 	}
 }
