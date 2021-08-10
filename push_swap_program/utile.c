@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utile.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/10 01:14:01 by xinwang           #+#    #+#             */
+/*   Updated: 2021/08/10 01:15:41 by xinwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		nb_to_group(int n, t_stack *ptr)
+int	nb_to_group(int n, t_stack *ptr)
 {
 	int	nb_to_group;
 
@@ -50,9 +62,9 @@ void	swatch_b_when_stack_has_two_unsorted_element(t_stack *a)
 	}
 }
 
-int		get_mid_nb(int nb, t_stack *ptr)
+int	get_mid_nb(int nb, t_stack *ptr)
 {
-	int *tmp;
+	int	*tmp;
 	int	mid;
 
 	tmp = (int *)malloc(sizeof(int) * nb);

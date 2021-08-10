@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
-/*   Updated: 2021/08/07 22:19:23 by baobe            ###   ########.fr       */
+/*   Updated: 2021/08/10 14:34:19 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 
-typedef struct s_stack t_stack;
+typedef struct s_stack	t_stack;
 typedef struct s_stack
 {
 	int		from_arg;
@@ -52,28 +52,30 @@ void	swatch_two_stack_tab(t_stack *a, t_stack *b);
 void	rotate_stack_tab(t_stack *stack);
 void	rotate_two_up_tab(t_stack *a, t_stack *b);
 void	reverse_stack_tab(t_stack *a);
-void	reverse_two_stack_tab(t_stack *a, t_stack *b);
 void	do_it(int nb, t_stack *src, t_stack *dest);
 int		arr_is_sorted(int n, t_stack *a);
 int		nb_to_group(int n, t_stack *ptr);
 void	copy_tab(int n, int *tmp, t_stack *a);
-void    swatch_when_stack_has_two_unsorted_element(t_stack *a);
+void	swatch_when_stack_has_two_unsorted_element(t_stack *a);
 void	swatch_b_when_stack_has_two_unsorted_element(t_stack *a);
 int		get_mid_nb(int n, t_stack *ptr);
 int		arr_is_desending(int n, t_stack *ptr);
 void	move_all_ele_from_b_to_a(int n, t_stack *a, t_stack *b);
-void	manage_a(int n, t_stack *a,  t_stack *b);
-void	manage_b(int n, t_stack *a,  t_stack *b);
-
-void	send_ele_from_b_to_a(int nb_to_move, int n, int m, t_stack *b, t_stack *a);
-void		sort_tab(int    **tab, int n);
-int     chunk_is_sorted(int n, t_stack *ptr);
-
-
-// DETELT AFTER
-void	show_arr_value2(t_stack *stack);
-void	show_arr_value3(t_stack *stack);
+void	manage_a(int n, t_stack *a);
+void	manage_b(int n, t_stack *a, t_stack *b);
+void	send_ele_from_a_to_b(int nb_m, int mid, t_stack *a, t_stack *b);
+void	send_ele_from_b_to_a(int n, int m, t_stack *b, t_stack *a);
+void	sort_tab(int **tab, int n);
+int		chunk_is_sorted(int n, t_stack *ptr);
+void	lens_is_four(t_stack *a, t_stack *b);
+void	lens_is_three(t_stack *a);
+void	lens_is_five(t_stack *a, t_stack *b);
+void	manage_small_nb(int n, t_stack *a, t_stack *b);
+void	reverse_and_pb(t_stack *a, t_stack *b);
+void	rotate_and_pb(int mid, int *n, t_stack *a, t_stack *b);
+void	move_to_b(t_stack *a, t_stack *b);
+int		get_max_nb_position(t_stack *a);
+void	move_b_a_when_nb_is_small(int nb, int nb_m, int mid, t_stack *b);
 int		*get_sorted_tab(int n, int n1, int m, t_stack *b);
-
 
 #endif

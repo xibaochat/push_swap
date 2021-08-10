@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
-/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*   Created: 2021/08/10 13:26:49 by xinwang           #+#    #+#             */
+/*   Updated: 2021/08/10 14:36:47 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swatch_two_stack(t_stack *a, t_stack *b)
 	if (a->top > 0)
 		swatch_value(a->arr + (a->top), a->arr + (a->top - 1));
 	if (b->top > 0)
-		swatch_value(b->arr + (b->top), a->arr + (b->top - 1));
+		swatch_value(b->arr + (b->top), b->arr + (b->top - 1));
 }
 
 void	rotate_stack(t_stack *stack)
