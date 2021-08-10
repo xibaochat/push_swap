@@ -84,7 +84,10 @@ int	main(int ac, char **av)
 		return (0);
 	init_two_stack(&a, &b);
 	if (arr_is_sorted(a.lens, &a))
+	{
+		free_two_stack(&a, &b);
 		return (0);
+	}
 	if (a.lens <= 5)
 	{
 		manage_small_nb(a.lens, &a, &b);
