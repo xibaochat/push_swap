@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
-/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*   Updated: 2021/08/11 22:30:44 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	isNumber(t_stack *ptr)
+bool	is_number(t_stack *ptr)
 {
 	int	i;
 	int	j;
@@ -84,7 +84,7 @@ int	has_invalid_instruction(char *line)
 
 int	check_arg(t_stack *ptr)
 {
-	if (!isNumber(ptr) || has_extrem_nb(ptr)
+	if (!is_number(ptr) || has_extrem_nb(ptr)
 		|| has_duplicates_arg(ptr))
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);

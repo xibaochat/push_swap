@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 17:49:28 by xinwang           #+#    #+#             */
-/*   Updated: 2020/12/13 17:49:44 by xinwang          ###   ########.fr       */
+/*   Updated: 2021/08/11 22:29:54 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	*transfer_char_to_int_of_arr(t_stack *stack)
 	return (tab);
 }
 
-void	rvereseArray(char **arr, int start, int end)
+void	rverese_array(char **arr, int start, int end)
 {
 	char	*temp;
 
@@ -55,7 +55,7 @@ void	init_stack_a(int ac, char **av, t_stack *ptr)
 		ptr->lens = ac - 1;
 		ptr->arr = av + 1;
 	}
-	rvereseArray(ptr->arr, 0, ptr->lens - 1);
+	rverese_array(ptr->arr, 0, ptr->lens - 1);
 	ptr->tab = NULL;
 	ptr->top = ptr->lens - 1;
 }
