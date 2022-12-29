@@ -5,7 +5,7 @@ mkdir -p args_tests
 for i in {2..500}
 do
 	# Generate random list of $i numbers
-	ARG=`NB_TO_GENERATE=$i python random_num_generator.py`
+	ARG=`NB_TO_GENERATE=$i python3 random_num_generator.py`
 
 	# Store random list in log file
 	echo $ARG > args_tests/test_$i.txt
