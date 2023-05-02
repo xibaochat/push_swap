@@ -2,7 +2,7 @@
    <b font size="15" face="arial" ><br><br>push_swap</font></b></h1>
    </br></br>
    <p align="center">
-  <img src="https://img.shields.io/badge/c-007ACC?style=for-the-badge&logo=c&logoColor=white">
+  <img src="https://img.shields.io/badge/c-007ACC?style=for-the-badge&logoColor=white">
   </p>
   <table align="center">
 <td>
